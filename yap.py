@@ -51,7 +51,6 @@ camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
 
 btn = Button(master, text="Take Picture", command = takePicture)
 btn.place(x=450, y=350)
-btn.pack()
 
 
 
