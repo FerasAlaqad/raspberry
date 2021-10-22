@@ -1,6 +1,5 @@
 from Tkinter import *
 from picamera import PiCamera
-from PIL import Image, ImageTk
 
 redAWB = 0.29
 blueAWB = 4.43
