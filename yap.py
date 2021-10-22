@@ -48,9 +48,16 @@ previewY = master.winfo_y()
 
 camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
 
+img = PhotoImage(file='logo.png')
+logo = Label(
+    ws,
+    image=img
+)
+
+logo.place(x=640, y=100)
 
 btn = Button(master, text="Take Picture", command = takePicture)
-btn.place(x=450, y=350)
+btn.place(x=640, y=350)
 
 
 
