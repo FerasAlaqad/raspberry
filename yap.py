@@ -67,7 +67,7 @@ def mode(val):
         drc()
 
 master = Tk()
-
+master.attributes("-fullscreen", True)
 previewX = master.winfo_x()
 previewY = master.winfo_y()
 
