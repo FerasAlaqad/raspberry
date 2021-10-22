@@ -1,5 +1,6 @@
 from Tkinter import *
 from picamera import PiCamera
+from PIL import Image, ImageTk
 
 redAWB = 0.29
 blueAWB = 4.43
@@ -43,20 +44,25 @@ def mode(val):
 
 master = Tk()
 master.attributes("-fullscreen", True)
+master.configure(background='black')
 previewX = master.winfo_x()
 previewY = master.winfo_y()
 
 camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
 
-img = PhotoImage(file='logo.png')
+image = Image.open("logo.png")
+resize_image = image.resize((160, 32))
+img = ImageTk.PhotoImage(resize_image)
+
 logo = Label(
     master,
     image=img
 )
 
-logo.place(x=640, y=100)
+logo.place(x=640, y=50)
 
-btn = Button(master, text="Take Picture", command = takePicture)
+btn = Button(master, text="Kaydet", command = takePicture,height = 80, 
+          width = 160)
 btn.place(x=640, y=350)
 
 
