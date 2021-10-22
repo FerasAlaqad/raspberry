@@ -50,7 +50,7 @@ camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
 
 img = PhotoImage(file='logo.png')
 logo = Label(
-    ws,
+    master,
     image=img
 )
 
