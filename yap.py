@@ -58,8 +58,8 @@ logo = Label(
 
 logo.place(x=640, y=50)
 
-btn = Button(master, text="Kaydet", command = takePicture,height = 20, 
-          width = 20)
+btn = Button(master, text="Kaydet", command = takePicture,height = 10, 
+          width = 10)
 btn.place(x=640, y=200)
 
 
