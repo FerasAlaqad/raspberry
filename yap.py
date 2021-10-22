@@ -64,12 +64,12 @@ btn = Button(master, text="Kaydet", command = takePicture,height =5,
           width = 17)
 btn.place(x=640, y=150)
 
+
+master.bind("<Configure>", repos)
 btnn = Button(master, text="Cikis", command = cikis,height =5, 
           width = 17)
 btnn.place(x=640, y=350)
-
-
 master.bind("<Return>", mode)
 
-master.bind("<Configure>", repos)
+
 mainloop()
