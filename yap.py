@@ -30,7 +30,7 @@ def takeYuvPicture():
 def repos(val):
     previewX = master.winfo_x()
     previewY = master.winfo_y()    
-    camera.start_preview(fullscreen=False,resolution=(640,480),window=(0,0,640,480))    
+    camera.start_preview(fullscreen=False,resolution=(800,480),window=(0,0,800,480))    
 
 def exposure():
         camera.exposure_mode=exposureMode.get().lower()
@@ -69,6 +69,7 @@ btnn = Button(master, text="Cikis", command = cikis,height =5,
 btnn.place(x=640, y=350)
 
 
-master.bind("<Configure>", repos)
 master.bind("<Return>", mode)
+
+master.bind("<Configure>", repos)
 mainloop()
