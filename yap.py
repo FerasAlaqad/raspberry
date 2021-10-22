@@ -53,7 +53,7 @@ def setContrast(val):
 def repos(val):
     previewX = master.winfo_x()
     previewY = master.winfo_y()    
-    camera.start_preview(fullscreen=False,resolution=(800,600),window=(0,0,800,600))    
+    camera.start_preview(fullscreen=False,resolution=(400,300),window=(0,0,400,300))    
 
 def exposure():
         camera.exposure_mode=exposureMode.get().lower()
