@@ -20,7 +20,9 @@ camera.framerate = 15
    
 def takePicture():
     camera.capture("testAWB.jpg", )
-
+def cikis():
+   exit()
+  
 def takeYuvPicture():
     camera.capture("testAWB.data", "yuv")
 
@@ -59,9 +61,12 @@ logo = Label(
 logo.place(x=640, y=50)
 
 btn = Button(master, text="Kaydet", command = takePicture,height =5, 
-          width = 15)
+          width = 17)
 btn.place(x=640, y=150)
 
+btnn = Button(master, text="Cikis", command = cikis,height =5, 
+          width = 17)
+btnn.place(x=640, y=350)
 
 
 master.bind("<Configure>", repos)
