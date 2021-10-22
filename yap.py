@@ -8,7 +8,6 @@ brightnessSliderRes = 1
 gains = (redAWB,blueAWB)
 camera = PiCamera() 
 camera.awb_mode = 'off'
-camera.awb_gains = gains
 #camera.exposure_mode = 'off'
 camera.vflip = True
 camera.hflip = True
@@ -72,35 +71,11 @@ previewX = master.winfo_x()
 previewY = master.winfo_y()
 
 camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
-redSlider = Scale(master,label="RedAWB",resolution=AWBsliderRes,orient=HORIZONTAL, from_=0.0, to=5.0, command=setRed)
-redSlider.pack()
+
 
 btn = Button(master, text="Take Picture", command = takePicture)
 btn.pack()
-blueSlider = Scale(master,label="BlueAWB",resolution=AWBsliderRes,orient=HORIZONTAL, from_=0.0, to=5.0, command=setBlue)
-blueSlider.pack()
 
-isoSlider = Scale(master,label="ISO",orient=HORIZONTAL,from_=0, to=800, command = setISO)
-isoSlider.pack()
-
-brightnessSlider = Scale(master,label="Brightness", orient=HORIZONTAL,resolution=brightnessSliderRes, from_=-100, to=100, command=setBrightness)
-brightnessSlider.pack()
-
-contrastSlider = Scale(master,label="Contrast", orient=HORIZONTAL, resolution= brightnessSliderRes, from_=-100, to=100, command=setContrast)
-contrastSlider.pack()
-
-Label(master,text="Exposure Mode").pack()
-
-exposureMode = Entry(master)
-exposureMode.pack()
-
-Label(master,text="DRC Mode").pack()
-drcMode = Entry(master)
-drcMode.pack()
-
-
-frame = Frame (master,height=600, width=900)
-frame.pack()
 
 
 
