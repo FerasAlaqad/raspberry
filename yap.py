@@ -75,6 +75,8 @@ camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
 redSlider = Scale(master,label="RedAWB",resolution=AWBsliderRes,orient=HORIZONTAL, from_=0.0, to=5.0, command=setRed)
 redSlider.pack()
 
+btn = Button(master, text="Take Picture", command = takePicture)
+btn.pack()
 blueSlider = Scale(master,label="BlueAWB",resolution=AWBsliderRes,orient=HORIZONTAL, from_=0.0, to=5.0, command=setBlue)
 blueSlider.pack()
 
@@ -100,8 +102,7 @@ drcMode.pack()
 frame = Frame (master,height=600, width=900)
 frame.pack()
 
-btn = Button(master, text="Take Picture", command = takePicture)
-btn.pack()
+
 
 btnYuv = Button(master, text="Take YUV Picture", command = takeYuvPicture)
 btnYuv.pack()
