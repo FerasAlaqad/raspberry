@@ -7,7 +7,6 @@ AWBsliderRes = 0.01
 brightnessSliderRes = 1
 gains = (redAWB,blueAWB)
 camera = PiCamera() 
-camera.awb_mode = 'off'
 #camera.exposure_mode = 'off'
 camera.vflip = True
 camera.hflip = True
@@ -17,36 +16,13 @@ camera.framerate = 15
 #camera.drc_strength = "high"
 
 
-def setRed(red):
-    global redAWB 
-    redAWB = float(red)
-    
-    gains = (redAWB,blueAWB)
-    print(gains)
-    camera.awb_gains = gains
 
-def setBlue(blue):     
-    global blueAWB 
-    blueAWB = float(blue)
-    gains = (redAWB,blueAWB)
-    print(gains)
-    camera.awb_gains = gains
    
 def takePicture():
     camera.capture("testAWB.jpg", )
 
 def takeYuvPicture():
     camera.capture("testAWB.data", "yuv")
-
-def setBrightness(val):
-    camera.brightness=int(val)
-    #camera.digital_gain = float(val) 
-
-def setISO(val):
-    camera.iso = int(val)
-
-def setContrast(val):
-    camera.contrast = int(val)
 
 
 def repos(val):
@@ -77,10 +53,6 @@ btn = Button(master, text="Take Picture", command = takePicture)
 btn.pack()
 
 
-
-
-btnYuv = Button(master, text="Take YUV Picture", command = takeYuvPicture)
-btnYuv.pack()
 
 master.bind("<Configure>", repos)
 master.bind("<Return>", mode)
