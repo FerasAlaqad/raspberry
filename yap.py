@@ -50,9 +50,7 @@ previewY = master.winfo_y()
 
 camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
 
-image = Image.open("logo.png")
-resize_image = image.resize((160, 32))
-img = ImageTk.PhotoImage(resize_image)
+img = PhotoImage(file='logo.png')
 
 logo = Label(
     master,
