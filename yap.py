@@ -66,10 +66,11 @@ btn.place(x=640, y=150)
 
 
 master.bind("<Configure>", repos)
+master.bind("<Return>", mode)
 btnn = Button(master, text="Cikis", command = cikis,height =5, 
           width = 17)
 btnn.place(x=640, y=350)
-master.bind("<Return>", mode)
+
 
 
 mainloop()
