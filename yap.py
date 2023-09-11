@@ -1,76 +1,65 @@
-from Tkinter import *
+import tkinter as tk
 from picamera import PiCamera
 
-redAWB = 0.29
-blueAWB = 4.43
-AWBsliderRes = 0.01
-brightnessSliderRes = 1
-gains = (redAWB,blueAWB)
-camera = PiCamera() 
-#camera.exposure_mode = 'off'
+# Constants for camera settings
+RED_AWB = 0.29
+BLUE_AWB = 4.43
+
+# Initialize the PiCamera
+camera = PiCamera()
 camera.vflip = True
 camera.hflip = True
 camera.resolution = (800, 600)
 camera.framerate = 15
-#camera.shutter_speed = camera.exposure_speed
-#camera.drc_strength = "high"
 
+def take_picture():
+    """Capture an image and save it as 'testAWB.jpg'."""
+    camera.capture("testAWB.jpg")
 
+def exit_application():
+    """Exit the application."""
+    exit()
 
-   
-def takePicture():
-    camera.capture("testAWB.jpg", )
-def cikis():
-   exit()
-  
-def takeYuvPicture():
-    camera.capture("testAWB.data", "yuv")
+def start_preview(val):
+    """Start the camera preview with specified resolution and position."""
+    camera.start_preview(fullscreen=False, resolution=(800, 480), window=(0, 0, 800, 480))
 
+def set_exposure():
+    """Set the camera exposure mode."""
+    exposure_mode = exposure_mode_var.get().lower()
+    camera.exposure_mode = exposure_mode
 
-def repos(val):
-    previewX = master.winfo_x()
-    previewY = master.winfo_y()    
-    camera.start_preview(fullscreen=False,resolution=(800,480),window=(0,0,800,480))    
+def set_drc():
+    """Set the camera DRC strength."""
+    drc_strength = drc_strength_var.get().lower()
+    camera.drc_strength = drc_strength
 
-def exposure():
-        camera.exposure_mode=exposureMode.get().lower()
+def main():
+    """Main function to create and run the GUI."""
+    root = tk.Tk()
+    root.title("Raspberry Pi Camera GUI")
+    root.attributes("-fullscreen", True)
+    root.configure(background='black')
 
-def drc():
-        camera.drc_strength=drcMode.get().lower()
+    # Create and place widgets
+    img = tk.PhotoImage(file='logo.png')
+    logo = tk.Label(root, image=img)
+    logo.place(x=640, y=50)
 
-def mode(val):
-        #flicker()
-        exposure()
-        drc()
+    capture_button = tk.Button(root, text="Capture", command=take_picture, height=5, width=17)
+    capture_button.place(x=640, y=150)
 
-master = Tk()
-master.attributes("-fullscreen", True)
-master.configure(background='black')
-previewX = master.winfo_x()
-previewY = master.winfo_y()
+    exit_button = tk.Button(root, text="Exit", command=exit_application, height=5, width=17)
+    exit_button.place(x=640, y=350)
 
-camera.start_preview(fullscreen=False,window=(previewX+75,previewY+350,800,600))
+    # Bind events
+    root.bind("<Configure>", start_preview)
+    root.bind("<Return>", lambda event: (set_exposure(), set_drc()))
 
-img = PhotoImage(file='logo.png')
+    root.mainloop()
 
-logo = Label(
-    master,
-    image=img
-)
+if __name__ == "__main__":
+    exposure_mode_var = tk.StringVar()
+    drc_strength_var = tk.StringVar()
 
-logo.place(x=640, y=50)
-
-btn = Button(master, text="Kaydet", command = takePicture,height =5, 
-          width = 17)
-btn.place(x=640, y=150)
-
-
-master.bind("<Configure>", repos)
-master.bind("<Return>", mode)
-btnn = Button(master, text="Cikis", command = cikis,height =5, 
-          width = 17)
-btnn.place(x=640, y=350)
-
-
-
-mainloop()
+    main()
