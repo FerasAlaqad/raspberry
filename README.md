@@ -24,3 +24,26 @@ Before using this application, ensure that you have the following components:
 
    ```bash
    python camera_gui.py
+
+
+## Customization
+
+You have the flexibility to customize this Raspberry Pi Camera GUI to suit your specific requirements:
+
+- **GUI Layout**: Modify the layout and appearance of the GUI to match your preferences. You can adjust the position, size, and style of widgets (buttons, labels) within the GUI window.
+
+- **Additional Functionality**: Extend the functionality of the script by adding features such as video recording, time-lapse photography, or image effects.
+
+- **Camera Settings**: Tailor camera settings according to your project's needs. Adjust parameters like resolution, framerate, and any other camera-specific settings in the code.
+
+## Code Structure
+
+The project includes the following main files:
+
+- `camera_gui.py`: This Python script contains the GUI design, camera control logic, and event handling.
+
+- `logo.png`: The GUI displays this custom logo or image. You can replace it with your own image to personalize the GUI further.
+
+   
+## Contact
+For questions or inquiries, please contact me at ferasdc18@gmail.com.
